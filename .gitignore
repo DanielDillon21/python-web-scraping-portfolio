@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Local run state; regenerated on each run
+03-price-monitor/output/price_history.db
+.scrapy/
+
+# Personal notes, not for the public repo
+UPWORK_PORTFOLIO.md

@@ -27,12 +27,16 @@ REPORT = OUTPUT_DIR / "catalog_report.xlsx"
 
 LOW_STOCK_UNITS = 3
 
+# The store files some products under placeholder category names; group them honestly.
+PLACEHOLDER_CATEGORIES = {"Default", "Add a comment"}
+
 HEADER_FILL = PatternFill("solid", fgColor="1F4E78")
 HEADER_FONT = Font(bold=True, color="FFFFFF")
 
 
 def load():
     df = pd.read_csv(SOURCE)
+    df["category"] = df["category"].where(~df["category"].isin(PLACEHOLDER_CATEGORIES), "Uncategorized")
     df = df.drop_duplicates(subset="upc").sort_values(["category", "title"])
     return df.reset_index(drop=True)
 

@@ -8,7 +8,9 @@ Crawls an entire online store and turns it into a clean, client-ready dataset an
 - Starts at the homepage, discovers all 50 categories, and follows pagination in each one
 - Visits every product page and extracts: title, category, price, star rating (converted to 1–5),
   units in stock (parsed from "In stock (22 available)"), review count, UPC, description, image URL, product URL
-- Cleans and types the data (prices as numbers, site truncation markers removed, duplicates dropped by UPC)
+- Cleans and types the data: prices as numbers, site truncation markers removed, duplicates dropped by UPC,
+  and the 219 products filed under the store's placeholder categories ("Default", "Add a comment")
+  grouped as "Uncategorized" in the report
 - Crawls politely: respects robots.txt, auto-throttles to the server, retries failed requests
 - Builds an Excel report with:
   - **Summary**: headline numbers
